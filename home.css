@@ -1,0 +1,364 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #4CAF50;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    padding-top: 80px;
+}
+
+/* Intro Section with High-Quality Background Image */
+.intro-section {
+    background-image: url('back\ 4\ soil.jpg'); /* Use a high-resolution image */
+     /* Contain keeps the image at its original ratio without stretching */
+   background-size: cover;
+    background-position: center center; /* Center the image within the section */
+    background-repeat: no-repeat; /* Avoids tiling if the image doesn't fully cover the section */
+    min-height: 100vh; /* Ensures the section fills the viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff; /* Adjust text color if needed */
+}
+
+/* Optional: Add an overlay for text readability */
+.intro-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Adjust opacity to make text more readable */
+    z-index: 1;
+}
+
+.intro-section .content {
+    position: relative;
+    z-index: 2; /* Ensures the text appears above the overlay */
+}
+
+
+
+.intro-section h1 {
+    font-size: 2em;
+    color:white;
+}
+.intro-section h3 {font-size: 1.5em;
+color: rgb(223, 217, 207);}
+/* Fixed Image Sections */
+.fixed-image-section {
+    position: relative;
+    height: 100vh;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.fixed-image-section .content {
+    position: relative;
+    width: 60%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.fixed-image-section h2 {
+    font-size: 1.8em;
+    color: #4CAF50;
+}
+
+.fixed-image-section p {
+    font-size: 1.2em;
+    color: #555;
+}
+#types {
+    background-image: url('soil\ ero\ 3.jpg'); /* Replace with your image path */
+    background-size: cover; /* Makes the image cover the entire section */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the image fixed while text scrolls */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+/* Real Incidents Section */
+.real-incidents {
+    padding: 50px;
+    background-color: #bac881;
+}
+
+.real-incidents h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+/* Style for each incident */
+.incident {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background:white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Incident image */
+.incident img {
+    width: 200px; /* Adjust image size as needed */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Incident info */
+.incident-info {
+    max-width: 600px;
+}
+
+.incident-info h3 {
+    font-size: 1.5em;
+    margin: 0;
+    color: #333;
+}
+
+.incident-info p {
+    margin-top: 10px;
+    color: #555;
+    line-height: 1.6;
+}
+/* Section for Table */
+.severity-table-section {
+    padding: 40px;
+    background-color: #f4f4f4; /* Light gray background for contrast */
+    text-align: center;
+}
+
+.severity-table-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styling for the table */
+.severity-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff; /* White background for table */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+
+.severity-table th, .severity-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    font-size: 1em;
+}
+
+.severity-table th {
+    background-color: #8b5e3c; /* Earthy brown color for header */
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.severity-table td {
+    text-align: center;
+    color: #333;
+}
+
+.severity-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for even rows */
+}
+
+.severity-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.severity-table tr:last-child td {
+    font-weight: bold;
+    background-color: #d3a77b; /* Slightly darker earthy color for total row */
+}
+
+.severity-table th, .severity-table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+/* Bar Graph Section */
+.bar-graph-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
+.bar-graph-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Bar Graph Container */
+.bar-graph {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 300px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-left: 2px solid #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+/* Individual Bars */
+.bar {
+    width: 40px;
+    background-color: #4a90e2; /* Color for "Mean erosion rate" */
+    position: relative;
+    --value: 0%;
+    height: var(--value);
+    transition: height 0.3s ease-in-out;
+}
+
+.bar:hover {
+    background-color: #f5a623; /* Color for "Total soil loss" */
+}
+
+/* Labels for Bars */
+.bar::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: #333;
+}
+
+/* Values on Top of Bars */
+.bar::before {
+    content: attr(data-value);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9em;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Erosion Graph Section */
+.erosion-graph-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f8f8f8; /* Light background color to distinguish this section */
+}
+
+.erosion-graph-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styling the figure element */
+.erosion-graph-section figure {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.erosion-graph-section img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the image */
+    border-radius: 8px;
+}
+
+.erosion-graph-section figcaption {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+}
+
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.footer-content .social-links a,
+.footer-content .footer-options a {
+    color: #4CAF50;
+    margin: 0 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-content .social-links a:hover,
+.footer-content .footer-options a:hover {
+    text-decoration: underline;
+}

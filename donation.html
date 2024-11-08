@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate to Prevent Soil Erosion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .donation-container {
+            width: 90%;
+            max-width: 500px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .donation-container h1 {
+            color: #1d4d1e;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .amount-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .amount {
+            background-color: #196a1c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .amount:hover {
+            background-color: #1e9223;
+        }
+        .custom-amount {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .custom-amount input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .payment-method {
+            margin: 20px 0;
+        }
+        .payment-method label {
+            margin-right: 15px;
+            font-size: 1em;
+            color: #333;
+        }
+        .donate-button {
+            background-color: #2d8130;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 1.2em;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .donate-button:hover {
+            background-color: #105414;
+        }
+    </style>
+</head>
+<body>
+
+<div class="donation-container">
+    <h1>Support Our Mission</h1>
+    <p class="description">Help us fight soil erosion and protect our planet. Your donation will fund sustainable practices and support local communities in preserving their land.</p>
+
+    <div class="amount-buttons">
+        <button class="amount" onclick="selectAmount(10)">$10</button>
+        <button class="amount" onclick="selectAmount(25)">$25</button>
+        <button class="amount" onclick="selectAmount(50)">$50</button>
+        <button class="amount" onclick="selectAmount(100)">$100</button>
+    </div>
+
+    <div class="custom-amount">
+        <label for="customAmount">Other:</label>
+        <input type="number" id="customAmount" placeholder="Enter amount" min="1">
+    </div>
+
+    <div class="payment-method">
+        <p><strong>Select Payment Method:</strong></p>
+        <label><input type="radio" name="paymentMethod" value="credit" checked> Credit Card</label>
+        <label><input type="radio" name="paymentMethod" value="paypal"> PayPal</label>
+        <label><input type="radio" name="paymentMethod" value="bank"> Bank Transfer</label>
+    </div>
+
+    <button class="donate-button" onclick="submitDonation()">Donate Now</button>
+</div>
+
+<script>
+    let selectedAmount = 10; // Default donation amount
+
+    function selectAmount(amount) {
+        selectedAmount = amount;
+        document.getElementById("customAmount").value = ""; // Clear custom amount
+    }
+
+    function submitDonation() {
+        const customAmount = document.getElementById("customAmount").value;
+        if (customAmount) {
+            selectedAmount = parseFloat(customAmount);
+        }
+
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+        if (selectedAmount > 0) {
+            alert(`Thank you for your generous donation of $${selectedAmount} via ${paymentMethod}!`);
+            // Here, you can add form submission logic or integrate a payment gateway
+        } else {
+            alert("Please enter a valid donation amount.");
+        }
+    }
+</script>
+
+</body>
+</html>

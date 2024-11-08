@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Erosion Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-container {
+            background-color: #ffffff;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .question {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        .option {
+            background-color: #e7f5ff;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #d4eaf7;
+        }
+        .next-button {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .next-button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            text-align: center;
+            font-size: 1.2em;
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Soil Erosion Quiz</h1>
+    <div id="quiz-content">
+        <div class="question" id="question">Loading question...</div>
+        <div class="options">
+            <div class="option" onclick="checkAnswer(0)" id="option0"></div>
+            <div class="option" onclick="checkAnswer(1)" id="option1"></div>
+            <div class="option" onclick="checkAnswer(2)" id="option2"></div>
+            <div class="option" onclick="checkAnswer(3)" id="option3"></div>
+        </div>
+        <button class="next-button" onclick="nextQuestion()">Next Question</button>
+    </div>
+    <div id="result" class="result"></div>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "What is the main cause of soil erosion?",
+            options: ["Rain and wind", "Fertilizers", "Sunlight", "Pollution"],
+            answer: 0
+        },
+        {
+            question: "Which type of erosion creates small channels on soil?",
+            options: ["Gully erosion", "Sheet erosion", "Rill erosion", "Wind erosion"],
+            answer: 2
+        },
+        {
+            question: "How can soil erosion be prevented in agricultural areas?",
+            options: ["Overgrazing", "Deforestation", "Contour farming", "Monoculture"],
+            answer: 2
+        },
+        {
+            question: "Which practice helps hold soil together on slopes?",
+            options: ["Strip cropping", "Mining", "Urbanization", "Pesticides"],
+            answer: 0
+        },
+        {
+            question: "What is a consequence of soil erosion?",
+            options: ["Increased crop yield", "Improved water quality", "Loss of topsoil", "Formation of new land"],
+            answer: 2
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const question = questions[currentQuestion];
+        document.getElementById("question").innerText = question.question;
+        question.options.forEach((option, index) => {
+            document.getElementById(`option${index}`).innerText = option;
+        });
+    }
+
+    function checkAnswer(selected) {
+        const question = questions[currentQuestion];
+        if (selected === question.answer) {
+            score++;
+            document.getElementById(`option${selected}`).style.backgroundColor = "#c8e6c9";
+        } else {
+            document.getElementById(`option${selected}`).style.backgroundColor = "#ffcdd2";
+            document.getElementById(`option${question.answer}`).style.backgroundColor = "#c8e6c9";
+        }
+        setTimeout(() => {
+            nextQuestion();
+        }, 1000);
+    }
+
+    function nextQuestion() {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+            resetOptions();
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function resetOptions() {
+        document.querySelectorAll(".option").forEach(option => {
+            option.style.backgroundColor = "#e7f5ff";
+        });
+    }
+
+    function showResult() {
+        document.getElementById("quiz-content").style.display = "none";
+        document.getElementById("result").innerText = `You scored ${score} out of ${questions.length}!`;
+    }
+
+    window.onload = loadQuestion;
+</script>
+
+</body>
+</html>
